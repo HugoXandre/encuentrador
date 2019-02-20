@@ -20,7 +20,7 @@ def main():
 def start(bot, update):
     bot.send_message(
         chat_id=update.message.chat_id,
-        text="Hola. Ya me he iniciado."
+        text="Hola. Bien, Ya me he iniciado."
     )
 
 def ayuda(bot, update):
@@ -29,25 +29,16 @@ def ayuda(bot, update):
 
 def scifi(bot, update):
     text = "Has seleccionado CIENCIA FICCIÓN"
-    random.seed()
     update.message.reply_text(text)
-    text = encuentros_scifi.encuentro_random
+    text = random.choice(encuentros_scifi.lista)
     update.message.reply_text(text)
+
 
 def fantasia(bot, update):
-        text = "Has seleccionado FANTASÍA"
-        update.message.reply_text(text)
-        numero = encuentros_fantasia.cuantos_encuentros
-        numero = int(numero)
-        #text = "De un total de", numero , "posibles encuentros, se ha seleccionado:"
-        #update.message.reply_text(text)
-        text = ""
-        text = encuentros_fantasia.encuentro_random
-        update.message.reply_text(text)
-
-
-
-
+    text = "Has seleccionado FANTASÍA"
+    update.message.reply_text(text)
+    text = random.choice(encuentros_fantasia.lista)
+    update.message.reply_text(text)
 
 
 if __name__ == '__main__':
